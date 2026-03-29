@@ -1,0 +1,208 @@
+/* Gruvbox Dark Mode with Toggle Support */
+
+/* Base/Light mode variables (default - keep existing bearblog colors) */
+:root {
+  --width: 720px;
+  --font-main: Verdana, sans-serif;
+  --font-secondary: Verdana, sans-serif;
+  --font-scale: 1em;
+  --background-color: #fff;
+  --heading-color: #222;
+  --text-color: #444;
+  --link-color: #3273dc;
+  --visited-color: #8b6fcb;
+  --blockquote-color: #222;
+  --code-bg: #f5f5f5;
+  --border-color: #999;
+  --transition-duration: 0.3s;
+}
+
+/* Gruvbox Dark mode - HIGH CONTRAST - applied via data-theme attribute */
+[data-theme="dark"] {
+  --background-color: #1d2021;
+  --heading-color: #fbf1c7;
+  --text-color: #ebdbb2;
+  --link-color: #83a598;
+  --visited-color: #d3869b;
+  --blockquote-color: #d5c4a1;
+  --code-bg: #282828;
+  --border-color: #665c54;
+}
+
+/* Apply transitions for smooth theme switching */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+strong,
+b,
+blockquote,
+code,
+time {
+  transition: color var(--transition-duration) ease,
+              background-color var(--transition-duration) ease;
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-scale);
+  margin: auto;
+  padding: 20px;
+  max-width: var(--width);
+  text-align: left;
+  background-color: var(--background-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  margin-right: 8px;
+}
+
+strong,
+b {
+  color: var(--heading-color);
+}
+
+button {
+  margin: 0;
+  cursor: pointer;
+}
+
+time {
+  font-family: monospace;
+  font-style: normal;
+  font-size: 15px;
+}
+
+main {
+  line-height: 1.6;
+}
+
+table {
+  width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed;
+  border-color: var(--border-color);
+  transition: border-color var(--transition-duration) ease;
+}
+
+img {
+  max-width: 100%;
+}
+
+code {
+  font-family: monospace;
+  padding: 2px;
+  border-radius: 3px;
+  background-color: var(--code-bg);
+  transition: background-color var(--transition-duration) ease;
+}
+
+blockquote {
+  border-left: 1px solid var(--border-color);
+  color: var(--blockquote-color);
+  padding-left: 20px;
+  font-style: italic;
+  transition: border-color var(--transition-duration) ease;
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.title:hover {
+  text-decoration: none;
+}
+
+.title h1 {
+  font-size: 1.5em;
+}
+
+.inline {
+  width: auto !important;
+}
+
+/* blog post list */
+ul.blog-posts {
+  list-style-type: none;
+  padding: unset;
+}
+
+ul.blog-posts li {
+  display: flex;
+}
+
+ul.blog-posts li span {
+  flex: 0 0 130px;
+}
+
+ul.blog-posts li a:visited {
+  color: var(--visited-color);
+}
+
+/* Dark mode toggle button styles */
+.dark-mode-toggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  cursor: pointer;
+  color: var(--text-color);
+  margin-left: 10px;
+  transition: all var(--transition-duration) ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--code-bg);
+  text-decoration: none;
+}
+
+/* Header layout with toggle */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure visited links maintain proper color in dark mode */
+[data-theme="dark"] a:visited {
+  color: var(--visited-color);
+}

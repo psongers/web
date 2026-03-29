@@ -1,0 +1,14 @@
+<script>
+  // Prevent flash of wrong theme - runs immediately
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (prefersDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+{{ $js := resources.Get "js/darkmode.js" | minify }}
+<script src="{{ $js.RelPermalink }}" defer></script>
